@@ -1,8 +1,9 @@
 <?php 
 
 require __DIR__.'/../../Library/bootstrap.php';
-$config = require_once '/../config.php';
+$config = require_once __DIR__.'/../config.php';
 $className = empty($_GET['class']) ? false : ucfirst($_GET['class']) ;
+$className = str_replace('.json', '', $className);
 $files = scandir($config['projectPath']);
 
 $operation = [

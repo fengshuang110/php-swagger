@@ -13,6 +13,9 @@ if($arr[0] == 'resources'){
 	header('location: /resources?class='.$className);die;
 }else{
 	$className = (empty($arr[0])) ?  false : Ucfirst(strtolower($arr[0]));
+	if(empty($className)){
+		echo "默认路由不存在";die;
+	}
 	$func = str_replace('.json','',$arr[1]);
 	$className = "Application\\Controller\\".$className;
 	$class =  new $className;
